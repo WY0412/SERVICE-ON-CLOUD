@@ -1,0 +1,12 @@
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshotContent
+metadata:
+  name: test-snapshot-content
+spec:
+  deletionPolicy: Delete
+  driver: ebs.csi.aws.com
+  source:
+    snapshotHandle: snap-083f7565490f6f6b5
+  volumeSnapshotRef:
+    name: test-snapshot-retain
+    namespace: default

@@ -1,0 +1,968 @@
+SPARK_MAJOR_VERSION is set to 3, using Spark3
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/hdp/5.1.5.2/spark3/jars/spark-streaming-kafka-0-10-assembly_2.12-3.3.1.5.1.5.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/hdp/5.1.5.2/spark3/jars/log4j-slf4j-impl-2.17.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/hdp/5.1.5.2/hive_warehouse_connector/hive-warehouse-connector-assembly-2.1.0.5.1.5.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+24/03/17 05:00:10 WARN SparkConf [main]: The configuration key 'spark.yarn.access.hadoopFileSystems' has been deprecated as of Spark 3.0 and may be removed in the future. Please use the new key 'spark.kerberos.access.hadoopFileSystems' instead.
+24/03/17 05:00:10 WARN SparkConf [main]: The configuration key 'spark.yarn.access.hadoopFileSystems' has been deprecated as of Spark 3.0 and may be removed in the future. Please use the new key 'spark.kerberos.access.hadoopFileSystems' instead.
+24/03/17 05:00:10 WARN SparkConf [main]: The configuration key 'spark.yarn.access.hadoopFileSystems' has been deprecated as of Spark 3.0 and may be removed in the future. Please use the new key 'spark.kerberos.access.hadoopFileSystems' instead.
+24/03/17 05:00:10 INFO SparkContext [main]: Running Spark version 3.3.1.5.1.5.2
+24/03/17 05:00:10 INFO ResourceUtils [main]: ==============================================================
+24/03/17 05:00:10 INFO ResourceUtils [main]: No custom resources configured for spark.driver.
+24/03/17 05:00:10 INFO ResourceUtils [main]: ==============================================================
+24/03/17 05:00:10 INFO SparkContext [main]: Submitted application: Filter Tweets
+24/03/17 05:00:10 INFO ResourceProfile [main]: Default ResourceProfile created, executor resources: Map(memoryOverhead -> name: memoryOverhead, amount: 384, script: , vendor: , cores -> name: cores, amount: 3, script: , vendor: , memory -> name: memory, amount: 11776, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+24/03/17 05:00:10 INFO ResourceProfile [main]: Limiting resource is cpus at 3 tasks per executor
+24/03/17 05:00:10 INFO ResourceProfileManager [main]: Added ResourceProfile id: 0
+24/03/17 05:00:10 INFO SecurityManager [main]: Changing view acls to: azureuser
+24/03/17 05:00:10 INFO SecurityManager [main]: Changing modify acls to: azureuser
+24/03/17 05:00:10 INFO SecurityManager [main]: Changing view acls groups to: 
+24/03/17 05:00:10 INFO SecurityManager [main]: Changing modify acls groups to: 
+24/03/17 05:00:10 INFO SecurityManager [main]: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(azureuser); groups with view permissions: Set(); users  with modify permissions: Set(azureuser); groups with modify permissions: Set()
+24/03/17 05:00:11 INFO Utils [main]: Successfully started service 'sparkDriver' on port 43379.
+24/03/17 05:00:11 INFO SparkEnv [main]: Registering MapOutputTracker
+24/03/17 05:00:11 INFO SparkEnv [main]: Registering BlockManagerMaster
+24/03/17 05:00:11 INFO BlockManagerMasterEndpoint [main]: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+24/03/17 05:00:11 INFO BlockManagerMasterEndpoint [main]: BlockManagerMasterEndpoint up
+24/03/17 05:00:11 INFO SparkEnv [main]: Registering BlockManagerMasterHeartbeat
+24/03/17 05:00:11 INFO DiskBlockManager [main]: Created local directory at /tmp/blockmgr-2e1850e2-596a-4f6c-92e9-ed9debf8d10e
+24/03/17 05:00:11 INFO MemoryStore [main]: MemoryStore started with capacity 366.3 MiB
+24/03/17 05:00:11 INFO SparkEnv [main]: Registering OutputCommitCoordinator
+24/03/17 05:00:11 INFO Utils [main]: Successfully started service 'SparkUI' on port 4040.
+24/03/17 05:00:11 INFO SparkContext [main]: Added JAR file:///usr/lib/mysql-connector-j-8.3.0.jar at spark://hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43379/jars/mysql-connector-j-8.3.0.jar with timestamp 1710651610775
+24/03/17 05:00:11 INFO SparkContext [main]: Added JAR file:/home/azureuser/CCprojectFor3-S24/etl/target/project_spark.jar at spark://hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43379/jars/project_spark.jar with timestamp 1710651610775
+24/03/17 05:00:11 INFO Executor [main]: Starting executor ID driver on host hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net
+24/03/17 05:00:11 INFO Executor [main]: Starting executor with user classpath (userClassPathFirst = false): ''
+24/03/17 05:00:11 INFO Executor [main]: Fetching spark://hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43379/jars/project_spark.jar with timestamp 1710651610775
+24/03/17 05:00:11 INFO TransportClientFactory [main]: Successfully created connection to hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net/10.0.0.23:43379 after 40 ms (0 ms spent in bootstraps)
+24/03/17 05:00:11 INFO Utils [main]: Fetching spark://hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43379/jars/project_spark.jar to /tmp/spark-b7725e21-ca1e-4947-b55b-4097f5e2e955/userFiles-26c6d1ab-f737-4a7e-bed6-2a4e0e14bbb7/fetchFileTemp565739486365107340.tmp
+24/03/17 05:00:12 INFO Executor [main]: Adding file:/tmp/spark-b7725e21-ca1e-4947-b55b-4097f5e2e955/userFiles-26c6d1ab-f737-4a7e-bed6-2a4e0e14bbb7/project_spark.jar to class loader
+24/03/17 05:00:12 INFO Executor [main]: Fetching spark://hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43379/jars/mysql-connector-j-8.3.0.jar with timestamp 1710651610775
+24/03/17 05:00:12 INFO Utils [main]: Fetching spark://hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43379/jars/mysql-connector-j-8.3.0.jar to /tmp/spark-b7725e21-ca1e-4947-b55b-4097f5e2e955/userFiles-26c6d1ab-f737-4a7e-bed6-2a4e0e14bbb7/fetchFileTemp4463345530418886462.tmp
+24/03/17 05:00:12 INFO Executor [main]: Adding file:/tmp/spark-b7725e21-ca1e-4947-b55b-4097f5e2e955/userFiles-26c6d1ab-f737-4a7e-bed6-2a4e0e14bbb7/mysql-connector-j-8.3.0.jar to class loader
+24/03/17 05:00:12 INFO Utils [main]: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 43809.
+24/03/17 05:00:12 INFO NettyBlockTransferService [main]: Server created on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809
+24/03/17 05:00:12 INFO BlockManager [main]: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+24/03/17 05:00:12 INFO BlockManager [main]: external shuffle service port = 7337
+24/03/17 05:00:12 INFO BlockManagerMaster [main]: Registering BlockManager BlockManagerId(driver, hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net, 43809, None)
+24/03/17 05:00:12 INFO BlockManagerMasterEndpoint [dispatcher-BlockManagerMaster]: Registering block manager hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 with 366.3 MiB RAM, BlockManagerId(driver, hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net, 43809, None)
+24/03/17 05:00:12 INFO BlockManagerMaster [main]: Registered BlockManager BlockManagerId(driver, hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net, 43809, None)
+24/03/17 05:00:12 INFO BlockManager [main]: Initialized BlockManager: BlockManagerId(driver, hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net, 43809, None)
+24/03/17 05:00:12 INFO MetricsConfig [main]: Loaded properties from hadoop-metrics2.properties
+24/03/17 05:00:12 INFO MetricsSystemImpl [main]: Scheduled Metric snapshot period at 10 second(s).
+24/03/17 05:00:12 INFO MetricsSystemImpl [main]: azure-file-system metrics system started
+24/03/17 05:00:13 INFO SingleEventLogFileWriter [main]: Logging events to wasbs:/hdp/spark3-events/local-1710651611800.inprogress
+24/03/17 05:00:13 INFO EnhancementSparkListener [main]: Enhancement listener is enabled
+24/03/17 05:00:13 INFO SparkContext [main]: Registered listener com.microsoft.hdinsight.spark.metrics.SparkMetricsListener
+24/03/17 05:00:13 INFO SparkContext [main]: Registered listener org.apache.spark.sql.scheduler.EnhancementSparkListener
+24/03/17 05:00:14 INFO SharedState [main]: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+24/03/17 05:00:14 INFO SharedState [main]: Warehouse path is 'wasbs://kewenz-cc-spark-cluster@sakewenzhdinsight.blob.core.windows.net/apps/spark/warehouse'.
+24/03/17 05:00:14 WARN SQLConf [main]: The SQL config 'spark.sql.legacy.replaceDatabricksSparkAvro.enabled' has been deprecated in Spark v3.2 and may be removed in the future. Use `.format("avro")` in `DataFrameWriter` or `DataFrameReader` instead.
+24/03/17 05:00:14 WARN SQLConf [main]: The SQL config 'spark.sql.legacy.replaceDatabricksSparkAvro.enabled' has been deprecated in Spark v3.2 and may be removed in the future. Use `.format("avro")` in `DataFrameWriter` or `DataFrameReader` instead.
+24/03/17 05:00:14 INFO InMemoryFileIndex [main]: It took 33 ms to list leaf files for 1 paths.
+24/03/17 05:00:14 INFO InMemoryFileIndex [main]: It took 9 ms to list leaf files for 1 paths.
+24/03/17 05:00:16 WARN SQLConf [main]: Cannot load HintErrorHandler org.apache.spark.sql.catalyst.analysis.HintErrorLogger for exception: org.apache.spark.sql.catalyst.analysis.HintErrorLogger.<init>(), callStack: [Ljava.lang.StackTraceElement;@1760e688, load the default HintErrorLogger
+24/03/17 05:00:17 WARN SQLConf [main]: Cannot load HintErrorHandler org.apache.spark.sql.catalyst.analysis.HintErrorLogger for exception: org.apache.spark.sql.catalyst.analysis.HintErrorLogger.<init>(), callStack: [Ljava.lang.StackTraceElement;@624494d4, load the default HintErrorLogger
+24/03/17 05:00:17 INFO FileSourceScanPlan [main]: Pushed Filters: 
+24/03/17 05:00:17 INFO FileSourceScanPlan [main]: Post-Scan Filters: 
+24/03/17 05:00:17 INFO MemoryStore [main]: Block broadcast_0 stored as values in memory (estimated size 576.2 KiB, free 365.7 MiB)
+24/03/17 05:00:17 INFO MemoryStore [main]: Block broadcast_0_piece0 stored as bytes in memory (estimated size 60.2 KiB, free 365.7 MiB)
+24/03/17 05:00:17 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_0_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 60.2 KiB, free: 366.2 MiB)
+24/03/17 05:00:18 INFO SparkContext [main]: Created broadcast 0 from json at Twitter.scala:14
+24/03/17 05:00:18 INFO FileSourceScanExec [main]: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/03/17 05:00:18 INFO SparkContext [main]: Starting job: json at Twitter.scala:14
+24/03/17 05:00:18 INFO DAGScheduler [dag-scheduler-event-loop]: Got job 0 (json at Twitter.scala:14) with 1 output partitions
+24/03/17 05:00:18 INFO DAGScheduler [dag-scheduler-event-loop]: Final stage: ResultStage 0 (json at Twitter.scala:14)
+24/03/17 05:00:18 INFO DAGScheduler [dag-scheduler-event-loop]: Parents of final stage: List()
+24/03/17 05:00:18 INFO DAGScheduler [dag-scheduler-event-loop]: Missing parents: List()
+24/03/17 05:00:18 INFO EnhancementSparkListener [spark-listener-group-shared]: register Enhancement QueryExecutionListener successful
+24/03/17 05:00:18 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting ResultStage 0 (MapPartitionsRDD[3] at json at Twitter.scala:14), which has no missing parents
+24/03/17 05:00:18 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_1 stored as values in memory (estimated size 21.2 KiB, free 365.7 MiB)
+24/03/17 05:00:18 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_1_piece0 stored as bytes in memory (estimated size 10.3 KiB, free 365.6 MiB)
+24/03/17 05:00:18 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_1_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 10.3 KiB, free: 366.2 MiB)
+24/03/17 05:00:18 INFO SparkContext [dag-scheduler-event-loop]: Created broadcast 1 from broadcast at DAGScheduler.scala:1521
+24/03/17 05:00:18 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[3] at json at Twitter.scala:14) (first 15 tasks are for partitions Vector(0))
+24/03/17 05:00:18 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Adding task set 0.0 with 1 tasks resource profile 0
+24/03/17 05:00:18 INFO TaskSetManager [dispatcher-event-loop-0]: Starting task 0.0 in stage 0.0 (TID 0) (hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net, executor driver, partition 0, PROCESS_LOCAL, 8339 bytes) taskResourceAssignments Map()
+24/03/17 05:00:18 INFO Executor [Executor task launch worker for task 0.0 in stage 0.0 (TID 0)]: Running task 0.0 in stage 0.0 (TID 0)
+24/03/17 05:00:19 WARN SQLConf [Executor task launch worker for task 0.0 in stage 0.0 (TID 0)]: The SQL config 'spark.sql.legacy.replaceDatabricksSparkAvro.enabled' has been deprecated in Spark v3.2 and may be removed in the future. Use `.format("avro")` in `DataFrameWriter` or `DataFrameReader` instead.
+24/03/17 05:00:19 INFO FileScanRDD [Executor task launch worker for task 0.0 in stage 0.0 (TID 0)]: Reading File path: wasbs://kewenz-cc-spark-cluster@sakewenzhdinsight.blob.core.windows.net/small_twitter.json, range: 0-1594, partition values: [empty row]
+24/03/17 05:00:20 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 0.0 (TID 0)]: Code generated in 429.343284 ms
+24/03/17 05:00:20 INFO Executor [Executor task launch worker for task 0.0 in stage 0.0 (TID 0)]: Finished task 0.0 in stage 0.0 (TID 0). 1954 bytes result sent to driver
+24/03/17 05:00:20 INFO TaskSetManager [task-result-getter-0]: Finished task 0.0 in stage 0.0 (TID 0) in 2239 ms on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net (executor driver) (1/1)
+24/03/17 05:00:20 INFO TaskSchedulerImpl [task-result-getter-0]: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+24/03/17 05:00:21 INFO DAGScheduler [dag-scheduler-event-loop]: ResultStage 0 (json at Twitter.scala:14) finished in 2.657 s
+24/03/17 05:00:21 INFO DAGScheduler [dag-scheduler-event-loop]: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+24/03/17 05:00:21 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Killing all running tasks in stage 0: Stage finished
+24/03/17 05:00:21 INFO DAGScheduler [main]: Job 0 finished: json at Twitter.scala:14, took 2.805378 s
+24/03/17 05:00:21 INFO InMemoryFileIndex [main]: It took 13 ms to list leaf files for 1 paths.
+24/03/17 05:00:21 INFO InMemoryFileIndex [main]: It took 14 ms to list leaf files for 1 paths.
+24/03/17 05:00:21 INFO FileSourceScanPlan [main]: Pushed Filters: 
+24/03/17 05:00:21 INFO FileSourceScanPlan [main]: Post-Scan Filters: 
+24/03/17 05:00:21 INFO MemoryStore [main]: Block broadcast_2 stored as values in memory (estimated size 576.1 KiB, free 365.1 MiB)
+24/03/17 05:00:22 INFO MemoryStore [main]: Block broadcast_2_piece0 stored as bytes in memory (estimated size 60.2 KiB, free 365.0 MiB)
+24/03/17 05:00:22 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_2_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 60.2 KiB, free: 366.2 MiB)
+24/03/17 05:00:22 INFO SparkContext [main]: Created broadcast 2 from json at Twitter.scala:15
+24/03/17 05:00:22 INFO FileSourceScanExec [main]: Planning scan with bin packing, max size: 41272606 bytes, open cost is considered as scanning 4194304 bytes.
+24/03/17 05:00:22 INFO SparkContext [main]: Starting job: json at Twitter.scala:15
+24/03/17 05:00:22 INFO DAGScheduler [dag-scheduler-event-loop]: Got job 1 (json at Twitter.scala:15) with 1 output partitions
+24/03/17 05:00:22 INFO DAGScheduler [dag-scheduler-event-loop]: Final stage: ResultStage 1 (json at Twitter.scala:15)
+24/03/17 05:00:22 INFO DAGScheduler [dag-scheduler-event-loop]: Parents of final stage: List()
+24/03/17 05:00:22 INFO DAGScheduler [dag-scheduler-event-loop]: Missing parents: List()
+24/03/17 05:00:22 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting ResultStage 1 (MapPartitionsRDD[7] at json at Twitter.scala:15), which has no missing parents
+24/03/17 05:00:22 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_3 stored as values in memory (estimated size 21.2 KiB, free 365.0 MiB)
+24/03/17 05:00:22 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_3_piece0 stored as bytes in memory (estimated size 10.3 KiB, free 365.0 MiB)
+24/03/17 05:00:22 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_3_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 10.3 KiB, free: 366.2 MiB)
+24/03/17 05:00:22 INFO SparkContext [dag-scheduler-event-loop]: Created broadcast 3 from broadcast at DAGScheduler.scala:1521
+24/03/17 05:00:22 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[7] at json at Twitter.scala:15) (first 15 tasks are for partitions Vector(0))
+24/03/17 05:00:22 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Adding task set 1.0 with 1 tasks resource profile 0
+24/03/17 05:00:22 INFO TaskSetManager [dispatcher-event-loop-2]: Starting task 0.0 in stage 1.0 (TID 1) (hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net, executor driver, partition 0, PROCESS_LOCAL, 8333 bytes) taskResourceAssignments Map()
+24/03/17 05:00:22 INFO Executor [Executor task launch worker for task 0.0 in stage 1.0 (TID 1)]: Running task 0.0 in stage 1.0 (TID 1)
+24/03/17 05:00:22 WARN SQLConf [Executor task launch worker for task 0.0 in stage 1.0 (TID 1)]: The SQL config 'spark.sql.legacy.replaceDatabricksSparkAvro.enabled' has been deprecated in Spark v3.2 and may be removed in the future. Use `.format("avro")` in `DataFrameWriter` or `DataFrameReader` instead.
+24/03/17 05:00:22 INFO FileScanRDD [Executor task launch worker for task 0.0 in stage 1.0 (TID 1)]: Reading File path: wasb://datasets@clouddeveloper.blob.core.windows.net/twitter-dataset/part-r-00000.gz, range: 0-160896123, partition values: [empty row]
+24/03/17 05:00:22 INFO ZlibFactory [Executor task launch worker for task 0.0 in stage 1.0 (TID 1)]: Successfully loaded & initialized native-zlib library
+24/03/17 05:00:22 INFO CodecPool [Executor task launch worker for task 0.0 in stage 1.0 (TID 1)]: Got brand-new decompressor [.gz]
+24/03/17 05:00:23 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Removed broadcast_0_piece0 on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 in memory (size: 60.2 KiB, free: 366.2 MiB)
+24/03/17 05:00:23 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Removed broadcast_1_piece0 on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 in memory (size: 10.3 KiB, free: 366.2 MiB)
+24/03/17 05:00:39 INFO Executor [Executor task launch worker for task 0.0 in stage 1.0 (TID 1)]: Finished task 0.0 in stage 1.0 (TID 1). 17778 bytes result sent to driver
+24/03/17 05:00:39 INFO TaskSetManager [task-result-getter-1]: Finished task 0.0 in stage 1.0 (TID 1) in 17315 ms on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net (executor driver) (1/1)
+24/03/17 05:00:39 INFO TaskSchedulerImpl [task-result-getter-1]: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+24/03/17 05:00:39 INFO DAGScheduler [dag-scheduler-event-loop]: ResultStage 1 (json at Twitter.scala:15) finished in 17.347 s
+24/03/17 05:00:39 INFO DAGScheduler [dag-scheduler-event-loop]: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+24/03/17 05:00:39 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Killing all running tasks in stage 1: Stage finished
+24/03/17 05:00:39 INFO DAGScheduler [main]: Job 1 finished: json at Twitter.scala:15, took 17.372922 s
+24/03/17 05:00:39 WARN package [main]: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+24/03/17 05:00:40 WARN SparkConf [main]: The configuration key 'spark.yarn.access.hadoopFileSystems' has been deprecated as of Spark 3.0 and may be removed in the future. Please use the new key 'spark.kerberos.access.hadoopFileSystems' instead.
+24/03/17 05:00:41 INFO InMemoryFileIndex [main]: It took 9 ms to list leaf files for 1 paths.
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Pushed Filters: IsNotNull(lang),Or(IsNotNull(id),IsNotNull(id_str)),IsNotNull(created_at),IsNotNull(text),Not(EqualTo(text,))
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Post-Scan Filters: isnotnull(lang#54),(isnotnull(id#46L) OR isnotnull(id_str#47)),(isnotnull(user#68.id) OR isnotnull(user#68.id_str)),isnotnull(created_at#36),isnotnull(text#65),NOT (text#65 = ),isnotnull(entities#39.hashtags),NOT (size(entities#39.hashtags, true) = 0),array_contains([ar,en,fr,in,pt,es,tr,ja], lang#54)
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Pushed Filters: 
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Post-Scan Filters: isnotnull(lower(value#576))
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Pushed Filters: IsNotNull(lang),Or(IsNotNull(id),IsNotNull(id_str)),IsNotNull(created_at),IsNotNull(text),Not(EqualTo(text,))
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Post-Scan Filters: isnotnull(lang#733),(isnotnull(id#725L) OR isnotnull(id_str#726)),(isnotnull(user#747.id) OR isnotnull(user#747.id_str)),isnotnull(created_at#715),isnotnull(text#744),NOT (text#744 = ),isnotnull(entities#718.hashtags),NOT (size(entities#718.hashtags, true) = 0),array_contains([ar,en,fr,in,pt,es,tr,ja], lang#733)
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Pushed Filters: 
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Post-Scan Filters: isnotnull(lower(value#749))
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Pushed Filters: IsNotNull(lang),Or(IsNotNull(id),IsNotNull(id_str)),IsNotNull(created_at),IsNotNull(text),Not(EqualTo(text,))
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Post-Scan Filters: isnotnull(lang#793),(isnotnull(id#785L) OR isnotnull(id_str#786)),(isnotnull(user#807.id) OR isnotnull(user#807.id_str)),isnotnull(created_at#775),isnotnull(text#804),NOT (text#804 = ),isnotnull(entities#778.hashtags),NOT (size(entities#778.hashtags, true) = 0),array_contains([ar,en,fr,in,pt,es,tr,ja], lang#793)
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Pushed Filters: IsNotNull(lang),Or(IsNotNull(id),IsNotNull(id_str)),IsNotNull(created_at),IsNotNull(text),Not(EqualTo(text,))
+24/03/17 05:00:42 INFO FileSourceScanPlan [main]: Post-Scan Filters: isnotnull(lang#508),(isnotnull(id#500L) OR isnotnull(id_str#501)),(isnotnull(user#522.id) OR isnotnull(user#522.id_str)),isnotnull(created_at#490),isnotnull(text#519),NOT (text#519 = ),isnotnull(entities#493.hashtags),NOT (size(entities#493.hashtags, true) = 0),array_contains([ar,en,fr,in,pt,es,tr,ja], lang#508)
+24/03/17 05:00:42 INFO EnsureOptimalPartitioningHelper [main]: column stats for List(from_user_id#155L) does not exist
+24/03/17 05:00:42 INFO EnsureOptimalPartitioningHelper [main]: stats doesn't allow to use List(from_user_id#155L), returning default shuffle keys
+24/03/17 05:00:42 INFO EnsureOptimalPartitioningHelper [main]: column stats for List(from_user_id#155L, to_user_id#344L) does not exist
+24/03/17 05:00:42 INFO EnsureOptimalPartitioningHelper [main]: stats doesn't allow to use List(from_user_id#155L, to_user_id#344L), returning default shuffle keys
+24/03/17 05:00:42 INFO EnsureOptimalPartitioningHelper [main]: column stats for List(from_user_id#352L, to_user_id#392L) does not exist
+24/03/17 05:00:42 INFO EnsureOptimalPartitioningHelper [main]: stats doesn't allow to use List(from_user_id#352L, to_user_id#392L), returning default shuffle keys
+24/03/17 05:00:42 INFO CodeGenerator [broadcast-exchange-0]: Code generated in 58.367167 ms
+24/03/17 05:00:42 INFO MemoryStore [broadcast-exchange-0]: Block broadcast_4 stored as values in memory (estimated size 576.0 KiB, free 365.1 MiB)
+24/03/17 05:00:42 INFO MemoryStore [broadcast-exchange-0]: Block broadcast_4_piece0 stored as bytes in memory (estimated size 60.2 KiB, free 365.0 MiB)
+24/03/17 05:00:42 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_4_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 60.2 KiB, free: 366.2 MiB)
+24/03/17 05:00:42 INFO SparkContext [broadcast-exchange-0]: Created broadcast 4 from $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266
+24/03/17 05:00:42 INFO FileSourceScanExec [broadcast-exchange-0]: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/03/17 05:00:42 INFO SparkContext [broadcast-exchange-0]: Starting job: $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266
+24/03/17 05:00:42 INFO DAGScheduler [dag-scheduler-event-loop]: Got job 2 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:266) with 1 output partitions
+24/03/17 05:00:42 INFO DAGScheduler [dag-scheduler-event-loop]: Final stage: ResultStage 2 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:266)
+24/03/17 05:00:42 INFO DAGScheduler [dag-scheduler-event-loop]: Parents of final stage: List()
+24/03/17 05:00:42 INFO DAGScheduler [dag-scheduler-event-loop]: Missing parents: List()
+24/03/17 05:00:42 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting ResultStage 2 (MapPartitionsRDD[11] at $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266), which has no missing parents
+24/03/17 05:00:42 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_5 stored as values in memory (estimated size 12.1 KiB, free 365.0 MiB)
+24/03/17 05:00:42 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_5_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 365.0 MiB)
+24/03/17 05:00:42 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_5_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 5.9 KiB, free: 366.2 MiB)
+24/03/17 05:00:42 INFO SparkContext [dag-scheduler-event-loop]: Created broadcast 5 from broadcast at DAGScheduler.scala:1521
+24/03/17 05:00:42 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[11] at $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266) (first 15 tasks are for partitions Vector(0))
+24/03/17 05:00:42 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Adding task set 2.0 with 1 tasks resource profile 0
+24/03/17 05:00:42 INFO TaskSetManager [dispatcher-event-loop-3]: Starting task 0.0 in stage 2.0 (TID 2) (hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net, executor driver, partition 0, PROCESS_LOCAL, 8341 bytes) taskResourceAssignments Map()
+24/03/17 05:00:42 INFO Executor [Executor task launch worker for task 0.0 in stage 2.0 (TID 2)]: Running task 0.0 in stage 2.0 (TID 2)
+24/03/17 05:00:42 INFO FileScanRDD [Executor task launch worker for task 0.0 in stage 2.0 (TID 2)]: Reading File path: wasbs://kewenz-cc-spark-cluster@sakewenzhdinsight.blob.core.windows.net/popular_hashtags.txt, range: 0-7962, partition values: [empty row]
+24/03/17 05:00:42 INFO Executor [Executor task launch worker for task 0.0 in stage 2.0 (TID 2)]: Finished task 0.0 in stage 2.0 (TID 2). 12528 bytes result sent to driver
+24/03/17 05:00:42 INFO TaskSetManager [task-result-getter-2]: Finished task 0.0 in stage 2.0 (TID 2) in 105 ms on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net (executor driver) (1/1)
+24/03/17 05:00:42 INFO DAGScheduler [dag-scheduler-event-loop]: ResultStage 2 ($anonfun$withThreadLocalCaptured$1 at FutureTask.java:266) finished in 0.120 s
+24/03/17 05:00:42 INFO DAGScheduler [dag-scheduler-event-loop]: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+24/03/17 05:00:42 INFO TaskSchedulerImpl [task-result-getter-2]: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+24/03/17 05:00:42 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Killing all running tasks in stage 2: Stage finished
+24/03/17 05:00:42 INFO DAGScheduler [broadcast-exchange-0]: Job 2 finished: $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266, took 0.134307 s
+24/03/17 05:00:42 WARN SparkConf [broadcast-exchange-0]: The configuration key 'spark.yarn.access.hadoopFileSystems' has been deprecated as of Spark 3.0 and may be removed in the future. Please use the new key 'spark.kerberos.access.hadoopFileSystems' instead.
+24/03/17 05:00:43 INFO MemoryStore [broadcast-exchange-0]: Block broadcast_6 stored as values in memory (estimated size 4.0 MiB, free 361.0 MiB)
+24/03/17 05:00:43 INFO MemoryStore [broadcast-exchange-0]: Block broadcast_6_piece0 stored as bytes in memory (estimated size 16.8 KiB, free 361.0 MiB)
+24/03/17 05:00:43 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_6_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 16.8 KiB, free: 366.2 MiB)
+24/03/17 05:00:43 INFO SparkContext [broadcast-exchange-0]: Created broadcast 6 from $anonfun$withThreadLocalCaptured$1 at FutureTask.java:266
+24/03/17 05:00:43 INFO CodeGenerator [main]: Code generated in 352.699091 ms
+24/03/17 05:00:43 INFO MemoryStore [main]: Block broadcast_7 stored as values in memory (estimated size 576.0 KiB, free 360.4 MiB)
+24/03/17 05:00:43 INFO MemoryStore [main]: Block broadcast_7_piece0 stored as bytes in memory (estimated size 60.2 KiB, free 360.3 MiB)
+24/03/17 05:00:43 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_7_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 60.2 KiB, free: 366.1 MiB)
+24/03/17 05:00:43 INFO SparkContext [main]: Created broadcast 7 from show at Twitter.scala:104
+24/03/17 05:00:43 INFO FileSourceScanExec [main]: Planning scan with bin packing, max size: 41272606 bytes, open cost is considered as scanning 4194304 bytes.
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Registering RDD 16 (show at Twitter.scala:104) as input to shuffle 0
+24/03/17 05:00:43 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Removed broadcast_5_piece0 on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 in memory (size: 5.9 KiB, free: 366.1 MiB)
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Got map stage job 3 (show at Twitter.scala:104) with 1 output partitions
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Final stage: ShuffleMapStage 3 (show at Twitter.scala:104)
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Parents of final stage: List()
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Missing parents: List()
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting ShuffleMapStage 3 (MapPartitionsRDD[16] at show at Twitter.scala:104), which has no missing parents
+24/03/17 05:00:43 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_8 stored as values in memory (estimated size 114.0 KiB, free 360.2 MiB)
+24/03/17 05:00:43 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_8_piece0 stored as bytes in memory (estimated size 33.1 KiB, free 360.2 MiB)
+24/03/17 05:00:43 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_8_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 33.1 KiB, free: 366.1 MiB)
+24/03/17 05:00:43 INFO SparkContext [dag-scheduler-event-loop]: Created broadcast 8 from broadcast at DAGScheduler.scala:1521
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting 1 missing tasks from ShuffleMapStage 3 (MapPartitionsRDD[16] at show at Twitter.scala:104) (first 15 tasks are for partitions Vector(0))
+24/03/17 05:00:43 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Adding task set 3.0 with 1 tasks resource profile 0
+24/03/17 05:00:43 INFO TaskSetManager [dispatcher-event-loop-1]: Starting task 0.0 in stage 3.0 (TID 3) (hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net, executor driver, partition 0, PROCESS_LOCAL, 8322 bytes) taskResourceAssignments Map()
+24/03/17 05:00:43 INFO Executor [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Running task 0.0 in stage 3.0 (TID 3)
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 16.907055 ms
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 14.885143 ms
+24/03/17 05:00:43 INFO FileScanRDD [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Reading File path: wasb://datasets@clouddeveloper.blob.core.windows.net/twitter-dataset/part-r-00000.gz, range: 0-160896123, partition values: [empty row]
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 106.600533 ms
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 7.783265 ms
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 6.33496 ms
+24/03/17 05:00:43 INFO CodeGenerator [main]: Code generated in 254.983998 ms
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 4.724242 ms
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 6.903598 ms
+24/03/17 05:00:43 INFO MemoryStore [main]: Block broadcast_9 stored as values in memory (estimated size 576.0 KiB, free 359.6 MiB)
+24/03/17 05:00:43 INFO MemoryStore [main]: Block broadcast_9_piece0 stored as bytes in memory (estimated size 60.2 KiB, free 359.5 MiB)
+24/03/17 05:00:43 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_9_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 60.2 KiB, free: 366.0 MiB)
+24/03/17 05:00:43 INFO SparkContext [main]: Created broadcast 9 from show at Twitter.scala:104
+24/03/17 05:00:43 INFO FileSourceScanExec [main]: Planning scan with bin packing, max size: 41272606 bytes, open cost is considered as scanning 4194304 bytes.
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Registering RDD 21 (show at Twitter.scala:104) as input to shuffle 1
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Got map stage job 4 (show at Twitter.scala:104) with 1 output partitions
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Final stage: ShuffleMapStage 4 (show at Twitter.scala:104)
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Parents of final stage: List()
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Missing parents: List()
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting ShuffleMapStage 4 (MapPartitionsRDD[21] at show at Twitter.scala:104), which has no missing parents
+24/03/17 05:00:43 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_11 stored as values in memory (estimated size 117.6 KiB, free 359.4 MiB)
+24/03/17 05:00:43 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_11_piece0 stored as bytes in memory (estimated size 33.7 KiB, free 359.4 MiB)
+24/03/17 05:00:43 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_11_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 33.7 KiB, free: 366.0 MiB)
+24/03/17 05:00:43 INFO SparkContext [dag-scheduler-event-loop]: Created broadcast 11 from broadcast at DAGScheduler.scala:1521
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting 1 missing tasks from ShuffleMapStage 4 (MapPartitionsRDD[21] at show at Twitter.scala:104) (first 15 tasks are for partitions Vector(0))
+24/03/17 05:00:43 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Adding task set 4.0 with 1 tasks resource profile 0
+24/03/17 05:00:43 INFO MemoryStore [main]: Block broadcast_10 stored as values in memory (estimated size 576.0 KiB, free 358.8 MiB)
+24/03/17 05:00:43 INFO TaskSetManager [dispatcher-event-loop-2]: Starting task 0.0 in stage 4.0 (TID 4) (hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net, executor driver, partition 0, PROCESS_LOCAL, 8322 bytes) taskResourceAssignments Map()
+24/03/17 05:00:43 INFO Executor [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Running task 0.0 in stage 4.0 (TID 4)
+24/03/17 05:00:43 INFO MemoryStore [main]: Block broadcast_10_piece0 stored as bytes in memory (estimated size 60.2 KiB, free 358.8 MiB)
+24/03/17 05:00:43 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_10_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 60.2 KiB, free: 365.9 MiB)
+24/03/17 05:00:43 INFO SparkContext [main]: Created broadcast 10 from show at Twitter.scala:104
+24/03/17 05:00:43 INFO FileSourceScanExec [main]: Planning scan with bin packing, max size: 41272606 bytes, open cost is considered as scanning 4194304 bytes.
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Registering RDD 28 (show at Twitter.scala:104) as input to shuffle 2
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Got map stage job 5 (show at Twitter.scala:104) with 1 output partitions
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Final stage: ShuffleMapStage 5 (show at Twitter.scala:104)
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Parents of final stage: List()
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Missing parents: List()
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting ShuffleMapStage 5 (MapPartitionsRDD[28] at show at Twitter.scala:104), which has no missing parents
+24/03/17 05:00:43 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_12 stored as values in memory (estimated size 62.2 KiB, free 358.7 MiB)
+24/03/17 05:00:43 INFO MemoryStore [dag-scheduler-event-loop]: Block broadcast_12_piece0 stored as bytes in memory (estimated size 19.6 KiB, free 358.7 MiB)
+24/03/17 05:00:43 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Added broadcast_12_piece0 in memory on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 (size: 19.6 KiB, free: 365.9 MiB)
+24/03/17 05:00:43 INFO SparkContext [dag-scheduler-event-loop]: Created broadcast 12 from broadcast at DAGScheduler.scala:1521
+24/03/17 05:00:43 INFO DAGScheduler [dag-scheduler-event-loop]: Submitting 1 missing tasks from ShuffleMapStage 5 (MapPartitionsRDD[28] at show at Twitter.scala:104) (first 15 tasks are for partitions Vector(0))
+24/03/17 05:00:43 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Adding task set 5.0 with 1 tasks resource profile 0
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Code generated in 33.497445 ms
+24/03/17 05:00:43 INFO TaskSetManager [dispatcher-event-loop-1]: Starting task 0.0 in stage 5.0 (TID 5) (hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net, executor driver, partition 0, PROCESS_LOCAL, 8322 bytes) taskResourceAssignments Map()
+24/03/17 05:00:43 INFO Executor [Executor task launch worker for task 0.0 in stage 5.0 (TID 5)]: Running task 0.0 in stage 5.0 (TID 5)
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Code generated in 40.000193 ms
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: column stats for Vector(id_str#47) does not exist
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: stats doesn't allow to use Vector(id_str#47), returning default shuffle keys
+24/03/17 05:00:43 INFO FileScanRDD [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Reading File path: wasb://datasets@clouddeveloper.blob.core.windows.net/twitter-dataset/part-r-00000.gz, range: 0-160896123, partition values: [empty row]
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: column stats for Vector(id_str#786) does not exist
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: stats doesn't allow to use Vector(id_str#786), returning default shuffle keys
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: column stats for List(from_user_id#155L) does not exist
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: stats doesn't allow to use List(from_user_id#155L), returning default shuffle keys
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: column stats for Vector(id_str#501) does not exist
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: stats doesn't allow to use Vector(id_str#501), returning default shuffle keys
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: column stats for List(from_user_id#155L, to_user_id#344L) does not exist
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: stats doesn't allow to use List(from_user_id#155L, to_user_id#344L), returning default shuffle keys
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: column stats for Vector(id_str#726) does not exist
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: stats doesn't allow to use Vector(id_str#726), returning default shuffle keys
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: column stats for List(from_user_id#352L, to_user_id#392L) does not exist
+24/03/17 05:00:43 INFO EnsureOptimalPartitioningHelper [main]: stats doesn't allow to use List(from_user_id#352L, to_user_id#392L), returning default shuffle keys
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Code generated in 36.575981 ms
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 5.0 (TID 5)]: Code generated in 26.652673 ms
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Code generated in 10.392161 ms
+24/03/17 05:00:43 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Code generated in 17.773449 ms
+24/03/17 05:00:44 INFO CodecPool [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Got brand-new decompressor [.gz]
+24/03/17 05:00:44 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 5.0 (TID 5)]: Code generated in 452.595107 ms
+24/03/17 05:00:44 INFO FileScanRDD [Executor task launch worker for task 0.0 in stage 5.0 (TID 5)]: Reading File path: wasb://datasets@clouddeveloper.blob.core.windows.net/twitter-dataset/part-r-00000.gz, range: 0-160896123, partition values: [empty row]
+24/03/17 05:00:44 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 5.0 (TID 5)]: Code generated in 300.110136 ms
+24/03/17 05:00:44 INFO CodecPool [Executor task launch worker for task 0.0 in stage 5.0 (TID 5)]: Got brand-new decompressor [.gz]
+24/03/17 05:01:05 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 14.775862 ms
+24/03/17 05:01:05 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 7.019313 ms
+24/03/17 05:01:05 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 5.267833 ms
+24/03/17 05:01:06 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 27.597551 ms
+24/03/17 05:01:06 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Code generated in 14.80288 ms
+24/03/17 05:01:06 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Removed broadcast_2_piece0 on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 in memory (size: 60.2 KiB, free: 366.0 MiB)
+24/03/17 05:01:06 INFO BlockManagerInfo [dispatcher-BlockManagerMaster]: Removed broadcast_3_piece0 on hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:43809 in memory (size: 10.3 KiB, free: 366.0 MiB)
+24/03/17 05:01:06 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Code generated in 11.769935 ms
+24/03/17 05:01:06 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Code generated in 14.252826 ms
+24/03/17 05:01:06 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Code generated in 5.466945 ms
+24/03/17 05:01:06 INFO CodeGenerator [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Code generated in 32.876926 ms
+24/03/17 05:01:07 ERROR Executor [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Exception in task 0.0 in stage 4.0 (TID 4)
+java.lang.OutOfMemoryError: Java heap space
+	at java.io.BufferedOutputStream.<init>(BufferedOutputStream.java:76) ~[?:1.8.0_382]
+	at org.apache.spark.storage.DiskBlockObjectWriter$ManualCloseBufferedOutputStream$1.<init>(DiskBlockObjectWriter.scala:149) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:151) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:159) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:306) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.scheduler.Task.run(Task.scala:136) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:548) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.executor.Executor$TaskRunner$$Lambda$2653/739181683.apply(Unknown Source) ~[?:?]
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1504) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:551) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[?:1.8.0_382]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[?:1.8.0_382]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_382]
+24/03/17 05:01:07 WARN TaskSetManager [task-result-getter-3]: Lost task 0.0 in stage 4.0 (TID 4) (hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net executor driver): java.lang.OutOfMemoryError: Java heap space
+	at java.io.BufferedOutputStream.<init>(BufferedOutputStream.java:76)
+	at org.apache.spark.storage.DiskBlockObjectWriter$ManualCloseBufferedOutputStream$1.<init>(DiskBlockObjectWriter.scala:149)
+	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:151)
+	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:159)
+	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:306)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:136)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:548)
+	at org.apache.spark.executor.Executor$TaskRunner$$Lambda$2653/739181683.apply(Unknown Source)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1504)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:551)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+24/03/17 05:01:07 ERROR TaskSetManager [task-result-getter-3]: Task 0 in stage 4.0 failed 1 times; aborting job
+24/03/17 05:01:07 ERROR SparkUncaughtExceptionHandler [Executor task launch worker for task 0.0 in stage 4.0 (TID 4)]: Uncaught exception in thread Thread[Executor task launch worker for task 0.0 in stage 4.0 (TID 4),5,main]
+java.lang.OutOfMemoryError: Java heap space
+	at java.io.BufferedOutputStream.<init>(BufferedOutputStream.java:76) ~[?:1.8.0_382]
+	at org.apache.spark.storage.DiskBlockObjectWriter$ManualCloseBufferedOutputStream$1.<init>(DiskBlockObjectWriter.scala:149) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:151) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:159) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:306) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.scheduler.Task.run(Task.scala:136) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:548) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.executor.Executor$TaskRunner$$Lambda$2653/739181683.apply(Unknown Source) ~[?:?]
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1504) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:551) ~[spark-core_2.12-3.3.1.5.1.5.2.jar:3.3.1.5.1.5.2]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[?:1.8.0_382]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[?:1.8.0_382]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_382]
+24/03/17 05:01:07 INFO TaskSchedulerImpl [task-result-getter-3]: Removed TaskSet 4.0, whose tasks have all completed, from pool 
+24/03/17 05:01:07 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Cancelling stage 4
+24/03/17 05:01:07 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Killing all running tasks in stage 4: Stage cancelled
+24/03/17 05:01:07 INFO DAGScheduler [dag-scheduler-event-loop]: ShuffleMapStage 4 (show at Twitter.scala:104) failed in 24.250 s due to Job aborted due to stage failure: Task 0 in stage 4.0 failed 1 times, most recent failure: Lost task 0.0 in stage 4.0 (TID 4) (hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net executor driver): java.lang.OutOfMemoryError: Java heap space
+	at java.io.BufferedOutputStream.<init>(BufferedOutputStream.java:76)
+	at org.apache.spark.storage.DiskBlockObjectWriter$ManualCloseBufferedOutputStream$1.<init>(DiskBlockObjectWriter.scala:149)
+	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:151)
+	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:159)
+	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:306)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:136)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:548)
+	at org.apache.spark.executor.Executor$TaskRunner$$Lambda$2653/739181683.apply(Unknown Source)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1504)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:551)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+Driver stacktrace:
+24/03/17 05:01:07 INFO DAGScheduler [main]: Asked to cancel job 3
+24/03/17 05:01:07 INFO DAGScheduler [main]: Asked to cancel job 3
+24/03/17 05:01:07 INFO DAGScheduler [main]: Asked to cancel job 5
+24/03/17 05:01:07 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Cancelling stage 3
+24/03/17 05:01:07 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Killing all running tasks in stage 3: Stage cancelled
+24/03/17 05:01:07 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.disk.diskSpaceUsed_MB, value=0
+24/03/17 05:01:07 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.maxMem_MB, value=366
+24/03/17 05:01:07 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.maxOffHeapMem_MB, value=0
+24/03/17 05:01:07 INFO Executor [dispatcher-event-loop-3]: Executor is trying to kill task 0.0 in stage 3.0 (TID 3), reason: Stage cancelled
+24/03/17 05:01:07 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.maxOnHeapMem_MB, value=366
+24/03/17 05:01:07 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Stage 3 was cancelled
+24/03/17 05:01:07 INFO DAGScheduler [dag-scheduler-event-loop]: ShuffleMapStage 3 (show at Twitter.scala:104) failed in 24.700 s due to Job 3 cancelled 
+24/03/17 05:01:07 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.memUsed_MB, value=0
+24/03/17 05:01:07 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.offHeapMemUsed_MB, value=0
+24/03/17 05:01:07 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Cancelling stage 5
+24/03/17 05:01:07 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Killing all running tasks in stage 5: Stage cancelled
+24/03/17 05:01:07 INFO CatalogTablePartitionCache [main]: Maximum partition cache size is is 5 MB
+24/03/17 05:01:07 INFO Executor [dispatcher-event-loop-2]: Executor is trying to kill task 0.0 in stage 5.0 (TID 5), reason: Stage cancelled
+24/03/17 05:01:07 INFO TaskSchedulerImpl [dag-scheduler-event-loop]: Stage 5 was cancelled
+24/03/17 05:01:07 INFO DAGScheduler [dag-scheduler-event-loop]: ShuffleMapStage 5 (show at Twitter.scala:104) failed in 24.251 s due to Job 5 cancelled 
+24/03/17 05:01:07 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.onHeapMemUsed_MB, value=0
+24/03/17 05:01:07 INFO SharedCatalogPartitionInMemoryCache [main]: Max cache size is 5368709
+24/03/17 05:01:07 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.remainingMem_MB, value=365
+24/03/17 05:01:08 INFO Executor [Executor task launch worker for task 0.0 in stage 5.0 (TID 5)]: Executor killed task 0.0 in stage 5.0 (TID 5), reason: Stage cancelled
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.remainingOffHeapMem_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.remainingOnHeapMem_MB, value=365
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.job.activeJobs, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.job.allJobs, value=6
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.stage.failedStages, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.stage.runningStages, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.stage.waitingStages, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.DirectPoolMemory, value=401409
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.JVMHeapMemory, value=544141720
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.JVMOffHeapMemory, value=201793312
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MajorGCCount, value=4
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MajorGCTime, value=252
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MappedPoolMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MinorGCCount, value=100
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MinorGCTime, value=1067
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OffHeapExecutionMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OffHeapStorageMemory, value=0
+24/03/17 05:01:08 WARN TaskSetManager [task-result-getter-0]: Lost task 0.0 in stage 5.0 (TID 5) (hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net executor driver): TaskKilled (Stage cancelled)
+24/03/17 05:01:08 INFO TaskSchedulerImpl [task-result-getter-0]: Removed TaskSet 5.0, whose tasks have all completed, from pool 
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OffHeapUnifiedMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OnHeapExecutionMemory, value=153616384
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OnHeapStorageMemory, value=7923178
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OnHeapUnifiedMemory, value=161539562
+Exception in thread "main" org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 4.0 failed 1 times, most recent failure: Lost task 0.0 in stage 4.0 (TID 4) (hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net executor driver): java.lang.OutOfMemoryError: Java heap space
+	at java.io.BufferedOutputStream.<init>(BufferedOutputStream.java:76)
+	at org.apache.spark.storage.DiskBlockObjectWriter$ManualCloseBufferedOutputStream$1.<init>(DiskBlockObjectWriter.scala:149)
+	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:151)
+	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:159)
+	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:306)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:136)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:548)
+	at org.apache.spark.executor.Executor$TaskRunner$$Lambda$2653/739181683.apply(Unknown Source)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1504)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:551)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2682)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2618)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2617)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2617)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1190)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1190)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1190)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2870)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2812)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2801)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: java.lang.OutOfMemoryError: Java heap space
+	at java.io.BufferedOutputStream.<init>(BufferedOutputStream.java:76)
+	at org.apache.spark.storage.DiskBlockObjectWriter$ManualCloseBufferedOutputStream$1.<init>(DiskBlockObjectWriter.scala:149)
+	at org.apache.spark.storage.DiskBlockObjectWriter.initialize(DiskBlockObjectWriter.scala:151)
+	at org.apache.spark.storage.DiskBlockObjectWriter.open(DiskBlockObjectWriter.scala:159)
+	at org.apache.spark.storage.DiskBlockObjectWriter.write(DiskBlockObjectWriter.scala:306)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:171)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:136)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:548)
+	at org.apache.spark.executor.Executor$TaskRunner$$Lambda$2653/739181683.apply(Unknown Source)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1504)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:551)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeJVMRSSMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeJVMVMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeOtherRSSMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeOtherVMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreePythonRSSMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreePythonVMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.TotalGCTime, value=1319
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.JVMCPU.jvmCpuTime, value=119660000000
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.appStatus.size, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.eventLog.size, value=6
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.executorManagement.size, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.shared.size, value=12
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.largeRead_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.read_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.read_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.write_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.write_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.largeRead_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.read_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.read_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.write_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.write_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.activeTasks, value=2
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.completeTasks, value=4
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.currentPool_size, value=3
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.maxPool_size, value=2147483647
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.startedTasks, value=6
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-MarkSweep.count, value=9
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-MarkSweep.time, value=1357
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-Scavenge.count, value=132
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-Scavenge.time, value=1421
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.direct.capacity, value=393216
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.direct.count, value=7
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.direct.used, value=393217
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.committed, value=954728448
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.init, value=526385152
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.max, value=954728448
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.usage, value=0.711639622159871
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.used, value=679427088
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.mapped.capacity, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.mapped.count, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.mapped.used, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.committed, value=225165312
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.init, value=2555904
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.max, value=-1
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.usage, value=-2.01182336E8
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.used, value=201182400
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.committed, value=44630016
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.init, value=2555904
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.max, value=251658240
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.usage, value=0.16685612996419272
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.used, value=41996992
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.committed, value=21323776
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.init, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.max, value=1073741824
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.usage, value=0.018172651529312134
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.used, value=19512736
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.committed, value=159211520
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.init, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.max, value=-1
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.usage, value=0.8773455086667096
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.used, value=139683512
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.committed, value=119537664
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.init, value=132120576
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.max, value=119537664
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.usage, value=0.6540580214115611
+24/03/17 05:01:08 INFO Executor [Executor task launch worker for task 0.0 in stage 3.0 (TID 3)]: Executor killed task 0.0 in stage 3.0 (TID 3), reason: Stage cancelled
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.used, value=78193320
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.used-after-gc, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.committed, value=716177408
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.init, value=351272960
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.max, value=716177408
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.usage, value=0.8415108006311196
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.used, value=602671024
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.used-after-gc, value=602671024
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.committed, value=119013376
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.init, value=21495808
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.max, value=119013376
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.usage, value=0.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.used, value=0
+24/03/17 05:01:08 WARN TaskSetManager [task-result-getter-1]: Lost task 0.0 in stage 3.0 (TID 3) (hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net executor driver): TaskKilled (Stage cancelled)
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.used-after-gc, value=0
+24/03/17 05:01:08 INFO TaskSchedulerImpl [task-result-getter-1]: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.committed, value=1179893760
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.init, value=528941056
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.max, value=954728447
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.used, value=882557072
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.fileCacheHits, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.filesDiscovered, count=5
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.hiveCallsTimerSumMilliSec, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.hiveClientCalls, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.parallelListingJobCount, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.partitionsFetched, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.numEventsPosted, count=88
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.appStatus.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.eventLog.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.executorManagement.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.shared.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.bytesRead, count=160905679
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.bytesWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.cpuTime, count=14188603800
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.deserializeCpuTime, count=327323900
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.deserializeTime, count=972
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.diskBytesSpilled, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.jvmGCTime, count=294
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.memoryBytesSpilled, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.recordsRead, count=329583
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.recordsWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.resultSerializationTime, count=39
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.resultSize, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.runTime, count=18402
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleBytesWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleFetchWaitTime, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleLocalBlocksFetched, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleLocalBytesRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRecordsRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRecordsWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRemoteBlocksFetched, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRemoteBytesRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRemoteBytesReadToDisk, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleTotalBytesRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleWriteTime, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.succeededTasks, count=3
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.compilationTime, count=28, min=4, max=452, mean=71.1839946009017, stddev=124.0055867718841, p50=14.0, p75=36.0, p95=429.0, p98=452.0, p99=452.0, p999=452.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.generatedClassSize, count=56, min=562, max=60933, mean=4466.086655575331, stddev=11198.260274162032, p50=934.0, p75=1953.0, p95=21487.0, p98=60610.0, p99=60933.0, p999=60933.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.generatedMethodSize, count=728, min=1, max=1168, mean=214.5409684864472, stddev=163.58777935831182, p50=227.0, p75=313.0, p95=435.0, p98=460.0, p99=890.0, p999=1168.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.sourceCodeSize, count=28, min=553, max=240349, mean=26948.19522088853, stddev=59801.06685788469, p50=1547.0, p75=32264.0, p95=239447.0, p98=240349.0, p99=240349.0, p999=240349.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.DAGScheduler.messageProcessingTime, count=25, min=0.001563, max=376.020435, mean=27.657435519342467, stddev=65.32832194304788, p50=2.581117, p75=22.915077, p95=156.928103, p98=376.020435, p99=376.020435, p999=376.020435, m1_rate=0.16030012067336402, m5_rate=0.048041164317513665, m15_rate=0.017166477305807403, mean_rate=0.4437417312679898, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.HiveExternalCatalog.hiveCallTimer, count=0, min=0.0, max=0.0, mean=0.0, stddev=0.0, p50=0.0, p75=0.0, p95=0.0, p98=0.0, p99=0.0, p999=0.0, m1_rate=0.0, m5_rate=0.0, m15_rate=0.0, mean_rate=0.0, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.com.microsoft.hdinsight.spark.metrics.SparkMetricsListener, count=88, min=0.017653, max=473.72714, mean=9.72503168229109, stddev=53.98771991021657, p50=0.126185, p75=0.793357, p95=26.25945, p98=150.93419, p99=380.385875, p999=473.72714, m1_rate=1.4954475190124759, m5_rate=1.7271996844839328, m15_rate=1.774889896837494, mean_rate=1.6099113434616463, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.HeartbeatReceiver, count=88, min=9.91E-4, max=37.729732, mean=0.2781913364166904, stddev=3.155962166740129, p50=0.003957, p75=0.006342, p95=0.015118, p98=0.336145, p99=0.621306, p999=37.729732, m1_rate=1.209587662297173, m5_rate=1.2106235659473137, m15_rate=1.2041343015379466, mean_rate=1.5608171048268782, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.scheduler.EventLoggingListener, count=89, min=0.002175, max=163.425838, mean=8.833723142534843, stddev=23.029061526743863, p50=0.904994, p75=5.032538, p95=62.799847, p98=86.992296, p99=163.425838, p999=163.425838, m1_rate=1.5899208295606793, m5_rate=1.8993412797689442, m15_rate=1.9651357817376367, mean_rate=1.627539824917277, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.SparkSession$$anon$1, count=82, min=3.91E-4, max=0.017383, mean=0.0025307053770923325, stddev=0.002506733464656614, p50=0.001623, p75=0.003466, p95=0.00533, p98=0.008376, p99=0.017383, p999=0.017383, m1_rate=1.0871934323550767, m5_rate=1.0321195329096857, m15_rate=1.011702110683455, mean_rate=1.5137965720338513, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.execution.ui.SQLAppStatusListener, count=82, min=8.62E-4, max=12.88323, mean=0.6485370615617329, stddev=2.0781275564106068, p50=0.020077, p75=0.184092, p95=4.203939, p98=12.62725, p99=12.88323, p999=12.88323, m1_rate=1.0871934323550767, m5_rate=1.0321195329096857, m15_rate=1.011702110683455, mean_rate=1.5143576085303176, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.scheduler.EnhancementSparkListener, count=88, min=7.72E-4, max=2.570195, mean=0.03371110952631429, stddev=0.23933455155623776, p50=0.003707, p75=0.006152, p95=0.01086, p98=0.159387, p99=1.058109, p999=2.570195, m1_rate=1.4954475190124759, m5_rate=1.7271996844839328, m15_rate=1.774889896837494, mean_rate=1.6098027569380635, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.util.ExecutionListenerBus, count=82, min=4.01E-4, max=82.308442, mean=1.3820864782254962, stddev=10.567101783555238, p50=0.002004, p75=0.003366, p95=0.004508, p98=0.008246, p99=82.308442, p999=82.308442, m1_rate=1.0803924940149103, m5_rate=1.031758148971776, m15_rate=1.0116599488047266, mean_rate=1.532386739942458, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.status.AppStatusListener, count=88, min=0.001683, max=112.093378, mean=3.454137902938303, stddev=13.422878962736672, p50=0.177049, p75=1.009779, p95=13.081465, p98=53.459057, p99=85.741709, p999=112.093378, m1_rate=1.1673121357163259, m5_rate=1.2010544939498988, m15_rate=1.2008518425860797, mean_rate=1.5366537812622607, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.appStatus.listenerProcessingTime, count=88, min=0.014197, max=113.372489, mean=4.159148165815064, stddev=13.667137043612701, p50=0.305979, p75=2.017805, p95=18.383654, p98=53.656724, p99=85.797764, p999=113.372489, m1_rate=1.1673121357163259, m5_rate=1.2010544939498988, m15_rate=1.2008518425860797, mean_rate=1.5365899727075478, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.eventLog.listenerProcessingTime, count=88, min=0.01084, max=163.454362, mean=8.934431460618674, stddev=23.11679243143817, p50=0.918049, p75=5.046344, p95=62.839049, p98=87.158606, p99=163.454362, p999=163.454362, m1_rate=1.4954475190124759, m5_rate=1.7271996844839328, m15_rate=1.774889896837494, mean_rate=1.6088407801094882, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.executorManagement.listenerProcessingTime, count=88, min=0.008886, max=38.52875, mean=0.3257997502952496, stddev=3.22427108019826, p50=0.022682, p75=0.036067, p95=0.079999, p98=0.664988, p99=1.746901, p999=38.52875, m1_rate=1.209587662297173, m5_rate=1.2106235659473137, m15_rate=1.2041343015379466, mean_rate=1.560395147494313, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.shared.listenerProcessingTime, count=88, min=0.046696, max=473.977205, mean=11.147001081795207, stddev=54.74738121533317, p50=0.217284, p75=1.314126, p95=40.566788, p98=151.037622, p99=380.561592, p999=473.977205, m1_rate=1.4954475190124759, m5_rate=1.7271996844839328, m15_rate=1.774889896837494, mean_rate=1.6093957316097163, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO SparkContext [shutdown-hook-0]: Invoking stop() from shutdown hook
+24/03/17 05:01:08 INFO SparkUI [shutdown-hook-0]: Stopped Spark web UI at http://hn0-kewenz.ctgktg4bixqeljttemh043xsye.bx.internal.cloudapp.net:4040
+24/03/17 05:01:08 INFO AsyncEventQueue [shutdown-hook-0]: appStatus requested to stop with 0 events
+24/03/17 05:01:08 INFO AsyncEventQueue [shutdown-hook-0]: executorManagement requested to stop with 0 events
+24/03/17 05:01:08 INFO AsyncEventQueue [shutdown-hook-0]: eventLog requested to stop with 0 events
+24/03/17 05:01:08 INFO AsyncEventQueue [shutdown-hook-0]: shared requested to stop with 0 events
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.disk.diskSpaceUsed_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.maxMem_MB, value=366
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.maxOffHeapMem_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.maxOnHeapMem_MB, value=366
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.memUsed_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.offHeapMemUsed_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.onHeapMemUsed_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.remainingMem_MB, value=365
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.remainingOffHeapMem_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.remainingOnHeapMem_MB, value=365
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.job.activeJobs, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.job.allJobs, value=6
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.stage.failedStages, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.stage.runningStages, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.stage.waitingStages, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.DirectPoolMemory, value=401409
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.JVMHeapMemory, value=544141720
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.JVMOffHeapMemory, value=201793312
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MajorGCCount, value=4
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MajorGCTime, value=252
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MappedPoolMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MinorGCCount, value=100
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MinorGCTime, value=1067
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OffHeapExecutionMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OffHeapStorageMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OffHeapUnifiedMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OnHeapExecutionMemory, value=153616384
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OnHeapStorageMemory, value=7923178
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OnHeapUnifiedMemory, value=161539562
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeJVMRSSMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeJVMVMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeOtherRSSMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeOtherVMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreePythonRSSMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreePythonVMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.TotalGCTime, value=1319
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.JVMCPU.jvmCpuTime, value=120230000000
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.appStatus.size, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.eventLog.size, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.executorManagement.size, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.shared.size, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.largeRead_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.read_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.read_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.write_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.write_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.largeRead_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.read_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.read_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.write_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.write_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.activeTasks, value=1
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.completeTasks, value=5
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.currentPool_size, value=1
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.maxPool_size, value=2147483647
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.startedTasks, value=6
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-MarkSweep.count, value=9
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-MarkSweep.time, value=1357
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-Scavenge.count, value=132
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-Scavenge.time, value=1421
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.direct.capacity, value=393216
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.direct.count, value=7
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.direct.used, value=393217
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.committed, value=954728448
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.init, value=526385152
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.max, value=954728448
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.usage, value=0.7202644662370006
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.used, value=687656976
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.mapped.capacity, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.mapped.count, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.mapped.used, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.committed, value=225427456
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.init, value=2555904
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.max, value=-1
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.usage, value=-2.01905448E8
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.used, value=201905448
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.committed, value=44630016
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.init, value=2555904
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.max, value=251658240
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.usage, value=0.1679211934407552
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.used, value=42258752
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.committed, value=21323776
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.init, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.max, value=1073741824
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.usage, value=0.018228977918624878
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.used, value=19573216
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.committed, value=159473664
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.init, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.max, value=-1
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.usage, value=0.87834866577092
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.used, value=140073480
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.committed, value=119537664
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.init, value=132120576
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.max, value=119537664
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.usage, value=0.7154712342379386
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.used, value=85525760
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.used-after-gc, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.committed, value=716177408
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.init, value=351272960
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.max, value=716177408
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.usage, value=0.8415108006311196
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.used, value=602671024
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.used-after-gc, value=602671024
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.committed, value=119013376
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.init, value=21495808
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.max, value=119013376
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.usage, value=0.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.used, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.used-after-gc, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.committed, value=1180155904
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.init, value=528941056
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.max, value=954728447
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.used, value=890240976
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.fileCacheHits, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.filesDiscovered, count=5
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.hiveCallsTimerSumMilliSec, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.hiveClientCalls, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.parallelListingJobCount, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.partitionsFetched, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.numEventsPosted, count=89
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.appStatus.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.eventLog.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.executorManagement.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.shared.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.bytesRead, count=160905679
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.bytesWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.cpuTime, count=14188603800
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.deserializeCpuTime, count=327323900
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.deserializeTime, count=972
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.diskBytesSpilled, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.jvmGCTime, count=294
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.memoryBytesSpilled, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.recordsRead, count=329583
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.recordsWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.resultSerializationTime, count=39
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.resultSize, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.runTime, count=18402
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleBytesWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleFetchWaitTime, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleLocalBlocksFetched, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleLocalBytesRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRecordsRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRecordsWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRemoteBlocksFetched, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRemoteBytesRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRemoteBytesReadToDisk, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleTotalBytesRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleWriteTime, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.succeededTasks, count=3
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.compilationTime, count=28, min=4, max=452, mean=71.1839946009017, stddev=124.0055867718841, p50=14.0, p75=36.0, p95=429.0, p98=452.0, p99=452.0, p999=452.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.generatedClassSize, count=56, min=562, max=60933, mean=4466.086655575331, stddev=11198.260274162032, p50=934.0, p75=1953.0, p95=21487.0, p98=60610.0, p99=60933.0, p999=60933.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.generatedMethodSize, count=728, min=1, max=1168, mean=214.5409684864472, stddev=163.58777935831182, p50=227.0, p75=313.0, p95=435.0, p98=460.0, p99=890.0, p999=1168.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.sourceCodeSize, count=28, min=553, max=240349, mean=26948.19522088853, stddev=59801.06685788469, p50=1547.0, p75=32264.0, p95=239447.0, p98=240349.0, p99=240349.0, p999=240349.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.DAGScheduler.messageProcessingTime, count=25, min=0.001563, max=376.020435, mean=27.657435519342467, stddev=65.32832194304788, p50=2.581117, p75=22.915077, p95=156.928103, p98=376.020435, p99=376.020435, p999=376.020435, m1_rate=0.16030012067336402, m5_rate=0.048041164317513665, m15_rate=0.017166477305807403, mean_rate=0.4421932117060489, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.HiveExternalCatalog.hiveCallTimer, count=0, min=0.0, max=0.0, mean=0.0, stddev=0.0, p50=0.0, p75=0.0, p95=0.0, p98=0.0, p99=0.0, p999=0.0, m1_rate=0.0, m5_rate=0.0, m15_rate=0.0, mean_rate=0.0, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.com.microsoft.hdinsight.spark.metrics.SparkMetricsListener, count=89, min=0.017653, max=473.72714, mean=9.574985402722259, stddev=53.57242305611729, p50=0.129832, p75=0.793357, p95=26.25945, p98=150.93419, p99=380.385875, p999=473.72714, m1_rate=1.4954475190124759, m5_rate=1.7271996844839328, m15_rate=1.774889896837494, mean_rate=1.6223514611336478, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.HeartbeatReceiver, count=89, min=9.91E-4, max=37.729732, mean=0.2745571528430499, stddev=3.1310158201842784, p50=0.003997, p75=0.006442, p95=0.016741, p98=0.336145, p99=0.621306, p999=37.729732, m1_rate=1.209587662297173, m5_rate=1.2106235659473137, m15_rate=1.2041343015379466, mean_rate=1.5730817702458009, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.scheduler.EventLoggingListener, count=90, min=0.002175, max=163.425838, mean=8.707059881539749, stddev=22.869549146832703, p50=0.904994, p75=4.72873, p95=62.799847, p98=86.992296, p99=163.425838, p999=163.425838, m1_rate=1.5899208295606793, m5_rate=1.8993412797689442, m15_rate=1.9651357817376367, mean_rate=1.6399428579870332, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.SparkSession$$anon$1, count=83, min=3.91E-4, max=0.045344, mean=0.003236786005614769, stddev=0.005992592864714428, p50=0.001652, p75=0.003477, p95=0.007935, p98=0.017383, p99=0.045344, p999=0.045344, m1_rate=1.0871934323550767, m5_rate=1.0321195329096857, m15_rate=1.011702110683455, mean_rate=1.5267663252547274, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.execution.ui.SQLAppStatusListener, count=83, min=8.62E-4, max=12.88323, mean=0.6380120377638167, stddev=2.0624942056201196, p50=0.020007, p75=0.089336, p95=4.203939, p98=12.62725, p99=12.88323, p999=12.88323, m1_rate=1.0871934323550767, m5_rate=1.0321195329096857, m15_rate=1.011702110683455, mean_rate=1.5273280495598198, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.scheduler.EnhancementSparkListener, count=89, min=7.72E-4, max=2.570195, mean=0.03320295587931524, stddev=0.23746933454972718, p50=0.003677, p75=0.006152, p95=0.01086, p98=0.159387, p99=1.058109, p999=2.570195, m1_rate=1.4954475190124759, m5_rate=1.7271996844839328, m15_rate=1.774889896837494, mean_rate=1.6223111410618378, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.util.ExecutionListenerBus, count=83, min=4.01E-4, max=82.308442, mean=1.3593182351825541, stddev=10.481099547086117, p50=0.001984, p75=0.003366, p95=0.004508, p98=0.008246, p99=82.308442, p999=82.308442, m1_rate=1.0803924940149103, m5_rate=1.031758148971776, m15_rate=1.0116599488047266, mean_rate=1.5454522267514625, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.status.AppStatusListener, count=89, min=0.001683, max=112.093378, mean=3.4009886134767884, stddev=13.322813044088788, p50=0.177049, p75=1.009779, p95=13.081465, p98=53.459057, p99=85.741709, p999=112.093378, m1_rate=1.1673121357163259, m5_rate=1.2010544939498988, m15_rate=1.2008518425860797, mean_rate=1.5490615213334553, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.appStatus.listenerProcessingTime, count=89, min=0.014197, max=113.372489, mean=4.09536592100788, stddev=13.567861554832003, p50=0.305979, p75=2.007877, p95=18.383654, p98=53.656724, p99=85.797764, p999=113.372489, m1_rate=1.1673121357163259, m5_rate=1.2010544939498988, m15_rate=1.2008518425860797, mean_rate=1.549013347498356, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.eventLog.listenerProcessingTime, count=89, min=0.01084, max=163.454362, mean=8.80544930024567, stddev=22.955889541575406, p50=0.918049, p75=5.046344, p95=62.839049, p98=87.158606, p99=163.454362, p999=163.454362, m1_rate=1.4954475190124759, m5_rate=1.7271996844839328, m15_rate=1.774889896837494, mean_rate=1.6216278815681446, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.executorManagement.listenerProcessingTime, count=89, min=0.008886, max=38.52875, mean=0.3217465667549453, stddev=3.198810471853539, p50=0.022682, p75=0.036067, p95=0.079999, p98=0.664988, p99=1.746901, p999=38.52875, m1_rate=1.209587662297173, m5_rate=1.2106235659473137, m15_rate=1.2041343015379466, mean_rate=1.5729696164248115, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.shared.listenerProcessingTime, count=89, min=0.046696, max=473.977205, mean=10.975653860903222, stddev=54.32990473852905, p50=0.229597, p75=1.234224, p95=40.566788, p98=151.037622, p99=380.561592, p999=473.977205, m1_rate=1.4954475190124759, m5_rate=1.7271996844839328, m15_rate=1.774889896837494, mean_rate=1.6222105080465314, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO MapOutputTrackerMasterEndpoint [dispatcher-event-loop-0]: MapOutputTrackerMasterEndpoint stopped!
+24/03/17 05:01:08 INFO MemoryStore [shutdown-hook-0]: MemoryStore cleared
+24/03/17 05:01:08 INFO BlockManager [shutdown-hook-0]: BlockManager stopped
+24/03/17 05:01:08 INFO BlockManagerMaster [shutdown-hook-0]: BlockManagerMaster stopped
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.disk.diskSpaceUsed_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.maxMem_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.maxOffHeapMem_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.maxOnHeapMem_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.memUsed_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.offHeapMemUsed_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.onHeapMemUsed_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.remainingMem_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.remainingOffHeapMem_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.BlockManager.memory.remainingOnHeapMem_MB, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.job.activeJobs, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.job.allJobs, value=6
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.stage.failedStages, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.stage.runningStages, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.DAGScheduler.stage.waitingStages, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.DirectPoolMemory, value=401409
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.JVMHeapMemory, value=544141720
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.JVMOffHeapMemory, value=201793312
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MajorGCCount, value=4
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MajorGCTime, value=252
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MappedPoolMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MinorGCCount, value=100
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.MinorGCTime, value=1067
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OffHeapExecutionMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OffHeapStorageMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OffHeapUnifiedMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OnHeapExecutionMemory, value=153616384
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OnHeapStorageMemory, value=7923178
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.OnHeapUnifiedMemory, value=161539562
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeJVMRSSMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeJVMVMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeOtherRSSMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreeOtherVMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreePythonRSSMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.ProcessTreePythonVMemory, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.ExecutorMetrics.TotalGCTime, value=1319
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.JVMCPU.jvmCpuTime, value=121010000000
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.appStatus.size, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.eventLog.size, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.executorManagement.size, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.LiveListenerBus.queue.shared.size, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.largeRead_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.read_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.read_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.write_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.file.write_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.largeRead_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.read_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.read_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.write_bytes, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.filesystem.hdfs.write_ops, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.activeTasks, value=1
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.completeTasks, value=5
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.currentPool_size, value=1
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.maxPool_size, value=2147483647
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.executor.threadpool.startedTasks, value=6
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-MarkSweep.count, value=9
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-MarkSweep.time, value=1357
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-Scavenge.count, value=133
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.PS-Scavenge.time, value=1428
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.direct.capacity, value=393216
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.direct.count, value=7
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.direct.used, value=393217
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.committed, value=954728448
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.init, value=526385152
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.max, value=954728448
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.usage, value=0.6522950827584432
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.heap.used, value=622764672
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.mapped.capacity, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.mapped.count, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.mapped.used, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.committed, value=225689600
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.init, value=2555904
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.max, value=-1
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.usage, value=-2.02784504E8
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.non-heap.used, value=202780600
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.committed, value=44630016
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.init, value=2555904
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.max, value=251658240
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.usage, value=0.16986541748046874
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Code-Cache.used, value=42748032
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.committed, value=21323776
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.init, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.max, value=1073741824
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.usage, value=0.018272988498210907
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Compressed-Class-Space.used, value=19620472
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.committed, value=159735808
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.init, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.max, value=-1
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.usage, value=0.8789733608133751
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.Metaspace.used, value=140403520
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.committed, value=119537664
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.init, value=132120576
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.max, value=119537664
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.usage, value=0.14704801325212447
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.used, value=17577776
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Eden-Space.used-after-gc, value=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.committed, value=716177408
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.init, value=351272960
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.max, value=716177408
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.usage, value=0.8415222391377082
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.used, value=602679216
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Old-Gen.used-after-gc, value=602671024
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.committed, value=119013376
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.init, value=21495808
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.max, value=119013376
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.usage, value=0.024156343569314426
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.used, value=2874928
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.pools.PS-Survivor-Space.used-after-gc, value=2874928
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.committed, value=1180418048
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.init, value=528941056
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.max, value=954728447
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=GAUGE, name=local-1710651611800.driver.jvm.total.used, value=825978072
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.fileCacheHits, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.filesDiscovered, count=5
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.hiveCallsTimerSumMilliSec, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.hiveClientCalls, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.parallelListingJobCount, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.HiveExternalCatalog.partitionsFetched, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.numEventsPosted, count=89
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.appStatus.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.eventLog.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.executorManagement.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.LiveListenerBus.queue.shared.numDroppedEvents, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.bytesRead, count=160905679
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.bytesWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.cpuTime, count=14188603800
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.deserializeCpuTime, count=327323900
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.deserializeTime, count=972
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.diskBytesSpilled, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.jvmGCTime, count=294
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.memoryBytesSpilled, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.recordsRead, count=329583
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.recordsWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.resultSerializationTime, count=39
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.resultSize, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.runTime, count=18402
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleBytesWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleFetchWaitTime, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleLocalBlocksFetched, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleLocalBytesRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRecordsRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRecordsWritten, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRemoteBlocksFetched, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRemoteBytesRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleRemoteBytesReadToDisk, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleTotalBytesRead, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.shuffleWriteTime, count=0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=COUNTER, name=local-1710651611800.driver.executor.succeededTasks, count=3
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.compilationTime, count=28, min=4, max=452, mean=71.1839946009017, stddev=124.0055867718841, p50=14.0, p75=36.0, p95=429.0, p98=452.0, p99=452.0, p999=452.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.generatedClassSize, count=56, min=562, max=60933, mean=4466.086655575331, stddev=11198.260274162032, p50=934.0, p75=1953.0, p95=21487.0, p98=60610.0, p99=60933.0, p999=60933.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.generatedMethodSize, count=728, min=1, max=1168, mean=214.5409684864472, stddev=163.58777935831182, p50=227.0, p75=313.0, p95=435.0, p98=460.0, p99=890.0, p999=1168.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=HISTOGRAM, name=local-1710651611800.driver.CodeGenerator.sourceCodeSize, count=28, min=553, max=240349, mean=26948.19522088853, stddev=59801.06685788469, p50=1547.0, p75=32264.0, p95=239447.0, p98=240349.0, p99=240349.0, p999=240349.0
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.DAGScheduler.messageProcessingTime, count=25, min=0.001563, max=376.020435, mean=27.657435519342467, stddev=65.32832194304788, p50=2.581117, p75=22.915077, p95=156.928103, p98=376.020435, p99=376.020435, p999=376.020435, m1_rate=0.16030012067336402, m5_rate=0.048041164317513665, m15_rate=0.017166477305807403, mean_rate=0.439013925894259, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.HiveExternalCatalog.hiveCallTimer, count=0, min=0.0, max=0.0, mean=0.0, stddev=0.0, p50=0.0, p75=0.0, p95=0.0, p98=0.0, p99=0.0, p999=0.0, m1_rate=0.0, m5_rate=0.0, m15_rate=0.0, mean_rate=0.0, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.com.microsoft.hdinsight.spark.metrics.SparkMetricsListener, count=89, min=0.017653, max=473.72714, mean=9.574985402722259, stddev=53.57242305611729, p50=0.129832, p75=0.793357, p95=26.25945, p98=150.93419, p99=380.385875, p999=473.72714, m1_rate=1.7276827128696848, m5_rate=1.7713771879245355, m15_rate=1.7894334058128956, mean_rate=1.6103336555562489, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.HeartbeatReceiver, count=89, min=9.91E-4, max=37.729732, mean=0.2745571528430499, stddev=3.1310158201842784, p50=0.003997, p75=0.006442, p95=0.016741, p98=0.336145, p99=0.621306, p999=37.729732, m1_rate=1.209587662297173, m5_rate=1.2106235659473137, m15_rate=1.2041343015379466, mean_rate=1.5617809844133457, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.scheduler.EventLoggingListener, count=90, min=0.002175, max=163.425838, mean=8.707059881539749, stddev=22.869549146832703, p50=0.904994, p75=4.72873, p95=62.799847, p98=86.992296, p99=163.425838, p999=163.425838, m1_rate=1.8146023545711005, m5_rate=1.940673532902658, m15_rate=1.9786252995942484, mean_rate=1.6278050501326105, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.SparkSession$$anon$1, count=83, min=3.91E-4, max=0.045344, mean=0.003236786005614769, stddev=0.005992592864714428, p50=0.001652, p75=0.003477, p95=0.007935, p98=0.017383, p99=0.045344, p999=0.045344, m1_rate=1.0871934323550767, m5_rate=1.0321195329096857, m15_rate=1.011702110683455, mean_rate=1.5153625338933794, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.execution.ui.SQLAppStatusListener, count=83, min=8.62E-4, max=12.88323, mean=0.6380120377638167, stddev=2.0624942056201196, p50=0.020007, p75=0.089336, p95=4.203939, p98=12.62725, p99=12.88323, p999=12.88323, m1_rate=1.0871934323550767, m5_rate=1.0321195329096857, m15_rate=1.011702110683455, mean_rate=1.515919060836038, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.scheduler.EnhancementSparkListener, count=89, min=7.72E-4, max=2.570195, mean=0.03320295587931524, stddev=0.23746933454972718, p50=0.003677, p75=0.006152, p95=0.01086, p98=0.159387, p99=1.058109, p999=2.570195, m1_rate=1.7276827128696848, m5_rate=1.7713771879245355, m15_rate=1.7894334058128956, mean_rate=1.6103079055997163, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.sql.util.ExecutionListenerBus, count=83, min=4.01E-4, max=82.308442, mean=1.3593182351825541, stddev=10.481099547086117, p50=0.001984, p75=0.003366, p95=0.004508, p98=0.008246, p99=82.308442, p999=82.308442, m1_rate=1.0803924940149103, m5_rate=1.031758148971776, m15_rate=1.0116599488047266, mean_rate=1.5337764036226877, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.listenerProcessingTime.org.apache.spark.status.AppStatusListener, count=89, min=0.001683, max=112.093378, mean=3.4009886134767884, stddev=13.322813044088788, p50=0.177049, p75=1.009779, p95=13.081465, p98=53.459057, p99=85.741709, p999=112.093378, m1_rate=1.1673121357163259, m5_rate=1.2010544939498988, m15_rate=1.2008518425860797, mean_rate=1.5381196263534658, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.appStatus.listenerProcessingTime, count=89, min=0.014197, max=113.372489, mean=4.09536592100788, stddev=13.567861554832003, p50=0.305979, p75=2.007877, p95=18.383654, p98=53.656724, p99=85.797764, p999=113.372489, m1_rate=1.1673121357163259, m5_rate=1.2010544939498988, m15_rate=1.2008518425860797, mean_rate=1.5380724944432935, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.eventLog.listenerProcessingTime, count=89, min=0.01084, max=163.454362, mean=8.80544930024567, stddev=22.955889541575406, p50=0.918049, p75=5.046344, p95=62.839049, p98=87.158606, p99=163.454362, p999=163.454362, m1_rate=1.7276827128696848, m5_rate=1.7713771879245355, m15_rate=1.7894334058128956, mean_rate=1.609645746678344, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.executorManagement.listenerProcessingTime, count=89, min=0.008886, max=38.52875, mean=0.3217465667549453, stddev=3.198810471853539, p50=0.022682, p75=0.036067, p95=0.079999, p98=0.664988, p99=1.746901, p999=38.52875, m1_rate=1.209587662297173, m5_rate=1.2106235659473137, m15_rate=1.2041343015379466, mean_rate=1.5616952160678568, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO metrics [shutdown-hook-0]: type=TIMER, name=local-1710651611800.driver.LiveListenerBus.queue.shared.listenerProcessingTime, count=89, min=0.046696, max=473.977205, mean=10.975653860903222, stddev=54.32990473852905, p50=0.229597, p75=1.234224, p95=40.566788, p98=151.037622, p99=380.561592, p999=473.977205, m1_rate=1.7276827128696848, m5_rate=1.7713771879245355, m15_rate=1.7894334058128956, mean_rate=1.6102248182890089, rate_unit=events/second, duration_unit=milliseconds
+24/03/17 05:01:08 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint [dispatcher-event-loop-0]: OutputCommitCoordinator stopped!
+24/03/17 05:01:08 INFO SparkContext [shutdown-hook-0]: Successfully stopped SparkContext
+24/03/17 05:01:08 INFO ShutdownHookManager [shutdown-hook-0]: Shutdown hook called
+24/03/17 05:01:08 INFO ShutdownHookManager [shutdown-hook-0]: Deleting directory /tmp/spark-14dee9aa-9263-45e7-9eae-4f27823672c6
+24/03/17 05:01:08 INFO ShutdownHookManager [shutdown-hook-0]: Deleting directory /tmp/spark-b7725e21-ca1e-4947-b55b-4097f5e2e955
+24/03/17 05:01:08 INFO MetricsSystemImpl [shutdown-hook-0]: Stopping azure-file-system metrics system...
+24/03/17 05:01:08 INFO MetricsSystemImpl [shutdown-hook-0]: azure-file-system metrics system stopped.
+24/03/17 05:01:08 INFO MetricsSystemImpl [shutdown-hook-0]: azure-file-system metrics system shutdown complete.

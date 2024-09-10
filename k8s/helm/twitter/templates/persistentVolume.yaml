@@ -1,0 +1,19 @@
+# adopted from https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/
+# https://aws.amazon.com/blogs/containers/using-ebs-snapshots-for-persistent-storage-with-your-eks-cluster/
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   name: mysql-pv
+#   labels:
+#     type: local
+# spec:
+#   storageClassName: my-sc
+#   capacity:
+#     storage: 50Gi
+#   accessModes:
+#     - ReadWriteMany
+  # csi:
+  #   driver: ebs.csi.aws.com
+  #   fsType: ext4
+  #   volumeHandle: snap-083f7565490f6f6b5
+# ---

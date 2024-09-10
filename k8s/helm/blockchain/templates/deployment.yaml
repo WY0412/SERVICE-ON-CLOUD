@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blockchain-deployment
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: blockchain-app
+  template:
+    metadata:
+      labels:
+        app: blockchain-app
+    spec:
+      containers:
+      - name: blockchain-app
+        image: 851725245278.dkr.ecr.us-east-1.amazonaws.com/team-project-ecr:latest
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: blockchain-config
+# ---
+# apiVersion: autoscaling/v1
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: blockchain-autoscaling
+#   namespace: default
+# spec:
+#   scaleTargetRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: blockchain-deployment
+#   minReplicas: 6
+#   maxReplicas: 6
+#   targetCPUUtilizationPercentage: 50

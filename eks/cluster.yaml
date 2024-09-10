@@ -1,0 +1,36 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: phase3-cluster
+  region: us-east-1
+  version: "1.28"
+  tags:
+    Project: twitter-phase-3
+availabilityZones:
+  - us-east-1a
+  - us-east-1b
+
+vpc:
+  nat:
+    gateway: Disable
+
+managedNodeGroups:
+  - name: nodes-us-east-1a
+    instanceType: m7g.large
+    labels:
+      role: worker
+    desiredCapacity: 6
+    minSize: 6
+    maxSize: 6
+    volumeSize: 32
+    volumeType: gp2
+
+    availabilityZones:
+      - us-east-1a
+    tags:
+      Project: twitter-phase-3
+
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]

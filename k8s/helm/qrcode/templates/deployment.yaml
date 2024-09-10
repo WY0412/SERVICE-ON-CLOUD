@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qrcode-deployment
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: qrcode-app
+  template:
+    metadata:
+      labels:
+        app: qrcode-app
+    spec:
+      containers:
+      - name: qrcode-app
+        image: 851725245278.dkr.ecr.us-east-1.amazonaws.com/qrcode-ecr:latest
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: qrcode-config
+      - name: qrcode-auth
+        image: public.ecr.aws/o1d3p3m0/cmucc-teamproject-auth-rest:arm64
+        ports:
+        - containerPort: 9000
+
+# ---
+# apiVersion: autoscaling/v1
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: qrcode-autoscaling
+#   namespace: default
+# spec:
+#   scaleTargetRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: qrcode-deployment
+#   minReplicas: 6
+#   maxReplicas: 6
+#   targetCPUUtilizationPercentage: 50

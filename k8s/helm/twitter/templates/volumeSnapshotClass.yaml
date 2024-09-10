@@ -1,0 +1,7 @@
+# Create a snapshot of a PVC, only need to be done once
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshotClass
+metadata:
+  name: test-snapclass
+driver: ebs.csi.aws.com
+deletionPolicy: Retain

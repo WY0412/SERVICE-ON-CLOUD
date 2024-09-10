@@ -1,0 +1,28 @@
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: test-snapshot-retain
+spec:
+  volumeSnapshotClassName: test-snapclass
+  source:
+    volumeSnapshotContentName: test-snapshot-content
+# ---
+# apiVersion: snapshot.storage.k8s.io/v1
+# kind: VolumeSnapshotClass
+# metadata:
+#   name: test-snapclass
+# driver: kubernetes.io/aws-ebs
+# deletionPolicy: Retain
+# ---
+# apiVersion: snapshot.storage.k8s.io/v1
+# kind: VolumeSnapshotContent
+# metadata:
+#   name: test-snapshot-content
+# spec:
+#   deletionPolicy: Delete
+#   driver: ebs.csi.aws.com
+#   source:
+#     snapshotHandle: snap-083f7565490f6f6b5
+#   volumeSnapshotRef:
+#     name: test-snapshot-retain
+#     namespace: default

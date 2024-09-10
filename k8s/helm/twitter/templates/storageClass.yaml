@@ -1,0 +1,17 @@
+allowVolumeExpansion: true
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "false"
+  labels:
+    addon.kops.k8s.io/name: storage-aws.addons.k8s.io
+    app.kubernetes.io/managed-by: kops
+    k8s-addon: storage-aws.addons.k8s.io
+  name: my-sc
+parameters:
+  encrypted: "true"
+  type: gp2
+provisioner: ebs.csi.aws.com
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
